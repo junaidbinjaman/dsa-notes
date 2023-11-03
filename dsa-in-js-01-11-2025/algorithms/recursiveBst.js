@@ -84,6 +84,43 @@ class BST {
         if (this.root === null) this.root = new Node(value);
         this.#rInsert(value);
     }
+
+    #deleteNode(value, currentNode) {
+        if (currentNode === null) return null;
+
+        if (value < currentNode.value) {
+            currentNode.left = this.#deleteNode(value, currentNode.left);
+        } else if (value > currentNode.value) {
+            currentNode.right = this.#deleteNode(value, currentNode.right);
+        } else {
+            if (currentNode.left === null && currentNode.right === null) {
+                return null;
+            } else if (currentNode.left === null) {
+                currentNode = currentNode.right;
+            } else if (currentNode.right === null) {
+                currentNode = currentNode.right;
+            } else {
+                let subTreeMin = this.minValue(currentNode.right);
+                currentNode.value = subTreeMin;
+                currentNode.right = this.#deleteNode(subTreeMin, currentNode.right);
+            }
+        }
+
+        return currentNode;
+    }
+
+    deleteNode(value) {
+        this.root = this.#deleteNode(value, this.root);
+    }
+
+    minValue(currentNode) {
+        while(currentNode.left != null) {
+            currentNode = currentNode.left;
+        }
+
+        return currentNode.value;
+    }
+
 }
 
 const myTree = new BST();
@@ -92,17 +129,28 @@ const myTree = new BST();
 // myTree.insert(76);
 // myTree.insert(18);
 
+// myTree.insert(27);
 // myTree.insert(52);
 // myTree.insert(82);
 
-// console.log(myTree.rContains(47));
+// console.log('\nMinValue from root:');
+// console.log(myTree.minValue(myTree.root));
+
+// console.log('\nMinValue from root->right:');
+// console.log(myTree.minValue(myTree.root.right));
 
 myTree.rInsert(2);
 myTree.rInsert(1);
 myTree.rInsert(3);
 
 console.log('\nRoot: ' + myTree.root.value);
-
 console.log('\nRoot->Left: ' + myTree.root.left.value);
-
 console.log('\nRoot->Right: ' + myTree.root.right.value);
+
+myTree.deleteNode(2);
+
+console.log("\n\n After Deleting (2) Node: ");
+console.log("------------------------------");
+console.log("Root: " + myTree.root.value);
+console.log("Root->Left: " + myTree.root.left.value);
+console.log("Root->Right: " + myTree.root.right);
