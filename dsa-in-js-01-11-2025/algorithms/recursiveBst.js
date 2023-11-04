@@ -67,15 +67,42 @@ class BST {
             return this.rContains(value, currentNode.right);
         }
     }
+
+    #rInsert(value, currentNode = this.root) {
+        if (currentNode === null) return new Node(value);
+
+        if (value < currentNode.value) {
+            currentNode.left = this.#rInsert(value, currentNode.left);
+        } else if (value > currentNode.value) {
+            currentNode.right = this.#rInsert(value, currentNode.right)
+        }
+
+        return currentNode;
+    } 
+
+    rInsert(value) {
+        if (this.root === null) this.root = new Node(value);
+        this.#rInsert(value);
+    }
 }
 
 const myTree = new BST();
-myTree.insert(47);
-myTree.insert(21);
-myTree.insert(76);
-myTree.insert(18);
+// myTree.insert(47);
+// myTree.insert(21);
+// myTree.insert(76);
+// myTree.insert(18);
 
-myTree.insert(52);
-myTree.insert(82);
+// myTree.insert(52);
+// myTree.insert(82);
 
-console.log(myTree.rContains(47));
+// console.log(myTree.rContains(47));
+
+myTree.rInsert(2);
+myTree.rInsert(1);
+myTree.rInsert(3);
+
+console.log('\nRoot: ' + myTree.root.value);
+
+console.log('\nRoot->Left: ' + myTree.root.left.value);
+
+console.log('\nRoot->Right: ' + myTree.root.right.value);
