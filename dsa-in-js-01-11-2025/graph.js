@@ -28,9 +28,26 @@ class Graph {
         }
         return false;
     }
+
+    removeVertex(vertex) {
+        if (!this.adjacencyList[vertex]) return undefined;
+
+        while(this.adjacencyList[vertex].length) {
+            let temp = this.adjacencyList[vertex].pop();
+            this.removeEdge(vertex, temp);
+        }
+        delete this.adjacencyList[vertex];
+        return this;
+    }
 }
 
 const myGraph = new Graph();
 myGraph.addVertex(1);
 myGraph.addVertex(2);
+myGraph.addVertex("A");
+myGraph.addVertex("B");
+myGraph.addVertex("C");
+myGraph.addEdge("A", "B");
+myGraph.addEdge("B", "C");
+myGraph.addEdge("A", "C")
 myGraph;
