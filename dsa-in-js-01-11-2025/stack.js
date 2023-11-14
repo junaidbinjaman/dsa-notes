@@ -12,7 +12,6 @@ class Stack {
        this.length = 1
    }
 
-   // The stack push method.
    push(value) {
        const newNode = new Node(value);
 
@@ -22,15 +21,23 @@ class Stack {
            newNode.next = this.top;
            this.top = newNode;
        }
-
        
        this.length++;
        return this;
+   }
+
+   pop() {
+       if (this.length === 0) return undefined;
+
+       let temp = this.top;
+       this.top = this.top.next;
+       temp.next = null;
+
+       this.length--;
+       return temp;
    }
 }
 
 const myStack = new Stack(10);
 myStack.push(20);
 myStack.push(30);
-myStack.push(40);
-myStack.push(50);
