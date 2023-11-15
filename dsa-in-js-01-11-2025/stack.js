@@ -12,6 +12,7 @@ class Stack {
        this.length = 1
    }
 
+   // The stack push method.
    push(value) {
        const newNode = new Node(value);
 
@@ -31,3 +32,5 @@ class Stack {
 const myStack = new Stack(10);
 myStack.push(20);
 myStack.push(30);
+myStack.push(40);
+myStack.push(50);
