@@ -119,6 +119,8 @@ class DoublyLinkedList {
         let before = this.get(index - 1);
         let after = before.next;
 
+        
+
         before.next = newNode
         newNode.prev = before
         newNode.next = after;
