@@ -127,10 +127,26 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+
+    remove(index) {
+        if (index < 0 || index > this.length) return undefined;
+        if (index === 0) return this.unshift();
+        if (index === this.length) return this.pop();
+
+        let temp = this.get(index);
+
+        temp.prev.next = temp.next;
+        temp.next.prev = temp.prev;
+        temp.prev = null;
+        temp.next = null;
+
+        this.length--;
+        return temp;
+    }
 }
 
 const dll = new DoublyLinkedList(1);
-// dll.push(2);
+dll.push(2);
 dll.push(3);
 // dll.push(4);
 // dll.push(5);
