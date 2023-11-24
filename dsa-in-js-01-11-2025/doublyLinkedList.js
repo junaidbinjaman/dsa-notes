@@ -81,22 +81,40 @@ class DoublyLinkedList {
         return temp;
     }
 
-    get(index) {
-        if (index < 0 || index > this.length) return undefined;
-         let temp = this.head;
+    // get(index) {
+    //     if (index < 0 || index > this.length) return undefined;
+    //      let temp = this.head;
         
-        if (index < this.length/2) {
-            for (let i = 0; i < index; i++) {
+    //     if (index < this.length/2) {
+    //         for (let i = 0; i < index; i++) {
+    //             temp = temp.next;
+    //         }    
+    //     } else {
+    //         temp = this.tail;
+    //         for (let i = this.length - 1; i > index; i--) {
+    //             temp = temp.prev;
+    //         }
+    //     }
+
+    //     return temp;
+    // }
+
+    get(index) {
+        if(!this.head) return undefined;
+        if (index < 0 || index > this.length) return undefined;
+        let temp = this.head;
+
+         if (index < this.length/2) {
+            for(let i = 0; i < index; i++) {
                 temp = temp.next;
-            }    
-        } else {
+            }
+         } else {
             temp = this.tail;
-            for (let i = this.length - 1; i > index; i--) {
+            for (let i = this.length - 1; i >= index ; i--) {
                 temp = temp.prev;
             }
-        }
-
-        return temp;
+         }
+         return temp;
     }
 
     set(index, value) {
@@ -151,4 +169,4 @@ dll.push(3);
 // dll.push(4);
 // dll.push(5);
 // dll.push(6);
-
+console.log(dll.get(0));
