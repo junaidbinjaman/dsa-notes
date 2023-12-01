@@ -81,7 +81,7 @@ class DoublyLinkedList {
         return temp;
     }
 
-    get (index) {
+    get(index) {
         if (index < 0 || index > this.length) return undefined;
          let temp = this.head;
         
@@ -98,12 +98,22 @@ class DoublyLinkedList {
 
         return temp;
     }
+
+    set(index, value) {
+        let temp = this.get(index);
+
+        if (temp) {
+            temp.value = value;
+            return true;
+        }
+
+        return false;
+    }
 }
 
 const dll = new DoublyLinkedList(1);
 dll.push(2);
 dll.push(3);
-dll.push(4);
-dll.push(5);
-dll.push(6);
-
+// dll.push(4);
+// dll.push(5);
+// dll.push(6);
