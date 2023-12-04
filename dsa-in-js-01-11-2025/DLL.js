@@ -1,4 +1,3 @@
-// DDD
 class Node {
     constructor(value) {
         this.value = value;
@@ -48,7 +47,24 @@ class DoublyLinkedList {
         this.length--;
         return temp;
     }
+
+    unshift(value) {
+        const newNode = new Node(value);
+
+        if (this.length === 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head.prev = newNode;
+            this.head = newNode;
+        }
+
+        this.length++;
+        return this;
+    }
 }
 
 const dll = new DoublyLinkedList(1);
-dll.push(20)
+dll.push(2);
+dll.push(3);
