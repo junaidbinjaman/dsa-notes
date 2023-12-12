@@ -11,6 +11,8 @@
  * @param  {...any} arg 
  * @returns boolean
  */
+
+// Solution using frequency counter
 function areThereDuplicates(...arg) {
     if (!arg.length) return false;
 
@@ -29,4 +31,24 @@ function areThereDuplicates(...arg) {
     return false;
 }
 
-console.log(areThereDuplicates(1,2,3));
+// console.log(areThereDuplicates(1,2,3));
+
+// Solution using two pointer pattern.
+// Sorted array is required for this approach.
+function areThereDuplicates1(...arg) {
+    if (!arg.length) return false;
+
+    arg.sort((a, b) => a - b);
+
+    let i = 0, next = 1;
+
+    for (let val of arg) {
+        if (arg[i] === arg[next]) return true;
+        i++;
+        next++;
+    }
+
+    return false;
+}
+
+console.log(areThereDuplicates1(1,2,3,1));
