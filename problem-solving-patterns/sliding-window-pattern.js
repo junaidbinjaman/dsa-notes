@@ -16,3 +16,6 @@ function maxSubarraySum(arr, k) {
 }
 
 console.log(maxSubarraySum([2, 1, 5, 1, 3, 2], 3)); // Output: 9
+
+// ✅ Time Complexity: O(n)
+// ✅ Space Complexity: O(1) (No extra space needed)
