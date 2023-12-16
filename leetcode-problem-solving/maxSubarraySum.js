@@ -16,5 +16,21 @@ function maxSubarraySum(arr, k) {
     return maxSum;
 }
 
-console.log(maxSubarraySum([2, 1, 5, 1, 3, 2], 3)); // Output: 9
+// console.log(maxSubarraySum([2, 1, 5, 1, 3, 2], 3)); // Output: 9
 
+function maxSubarraySum1(arr, k) {
+    let maxSub = 0, windowSub = 0;
+
+    for (let i = 0; i < k; i++) {
+        windowSub += arr[i];
+    }
+
+    for (let i = k; i < arr.length; i++) {
+        windowSub += arr[i] - arr[i - k];
+        maxSub = Math.max(windowSub, maxSub);
+    }
+
+    return maxSub;
+}
+
+console.log(maxSubarraySum1([2, 1, 5, 1, 3, 2], 3));
