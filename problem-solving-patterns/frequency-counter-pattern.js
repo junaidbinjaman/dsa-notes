@@ -1,6 +1,6 @@
 // Problem Description: Write a function which will accept two arrays and check, if the second array has the squard of the first array
 
-
+// Naive solution
 function same(arr1, arr2) {
     // Check whether the arr1 and arr2 has the same width. Return false, if different width.
     if (arr1.length !== arr2.length) {
@@ -28,3 +28,6 @@ const arr1 = [1, 2, 3];
 const arr2 = [1, 4, 9];
 
 same(arr1, arr2);
+
+// The best solution
+
