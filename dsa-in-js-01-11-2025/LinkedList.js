@@ -51,29 +51,8 @@ class LinkedList {
 
         return temp;
     }
-    
+
     
 }
 
-
-
 let myLinkedList = new LinkedList(4);
-
-myLinkedList.getHead();
-myLinkedList.getTail();
-myLinkedList.getLength();
-console.log("\nLinked List:");
-myLinkedList.printList();
-
-
-/*
-    EXPECTED OUTPUT:
-    ----------------
-    Head: 4
-    Tail: 4
-    Length: 1
-    
-    Linked List:
-    4
-
-*/
