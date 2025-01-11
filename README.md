@@ -27,8 +27,3 @@ This repository contains my learning journey in **Data Structures and Algorithms
 
 ## Languages Used
 This repository primarily uses **[Insert Language(s), e.g., Python, Java, C++]** for solutions.
-
-## How to Use
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
