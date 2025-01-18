@@ -42,3 +42,9 @@ var detectCycle = function(head) {
  * Output: tail connects to node index 0
  * Explanation: There is a cycle in the linked list, where tail connects to the first node.
  */
+
+/**
+ * Input: head = [1], pos = -1
+ * Output: no cycle
+ * Explanation: There is no cycle in the linked list.
+ */
