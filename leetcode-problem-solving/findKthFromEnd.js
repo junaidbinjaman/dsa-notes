@@ -148,14 +148,44 @@ class LinkedList {
         }
 
         return this;
-    }    
+    }
 
+    findKthFromEnd(k) {
+        if (k === 1) return this.tail;
+
+        let fast = this.head;
+        let slow = this.head;
+        let count = 0;
     
+        // Move fast pointer k steps ahead
+        while (fast !== null && count < k) {
+            fast = fast.next;
+            count++;
+        }
+    
+        // If k is out of bounds, return null
+        if (fast === null && count <= k) {
+            if (count === k) {
+                return this.head;
+            }
+
+            return null
+        };
+    
+        // Move both fast and slow until fast reaches the end
+        while (fast !== null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+    
+        return slow ? slow : null;
+    }
 }
 
-const myLinkedList = new LinkedList(11);
+const myLinkedList = new LinkedList(1);
+myLinkedList.push(2);
 myLinkedList.push(3);
-myLinkedList.push(23);
-myLinkedList.push(7);
+myLinkedList.push(4);
+myLinkedList.push(5);
 
-console.dir(myLinkedList.reverse(), {depth: null})
+console.log(myLinkedList.findKthFromEnd(2));
