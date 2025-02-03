@@ -121,7 +121,7 @@ class BST {
         return currentNode.value;
     }
 
-    bfs() {
+    BFS() {
         let currentNode = this.root;
         let queue = []
         let results = [];
@@ -133,6 +133,21 @@ class BST {
             if (currentNode.left) queue.push(currentNode.left);
             if (currentNode.right) queue.push(currentNode.right);
         }
+
+        return results;
+    }
+
+    DFSPreOrder() {
+        let results = [];
+
+        function traverse(currentNode) {
+            results.push(currentNode.value);
+            if (currentNode.left) traverse(currentNode.left);
+            if (currentNode.right) traverse(currentNode.right);
+        }
+        traverse(this.root);
+
+        return results;
     }
 
 }
