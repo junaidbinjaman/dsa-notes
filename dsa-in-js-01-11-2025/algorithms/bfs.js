@@ -121,36 +121,28 @@ class BST {
         return currentNode.value;
     }
 
+    bfs() {
+        let currentNode = this.root;
+        let queue = []
+        let results = [];
+        queue.push(currentNode);
+
+        while(queue.length) {
+            currentNode = queue.shift();
+            results.push(currentNode.value);
+            if (currentNode.left) queue.push(currentNode.left);
+            if (currentNode.right) queue.push(currentNode.right);
+        }
+    }
+
 }
 
 const myTree = new BST();
-// myTree.insert(47);
-// myTree.insert(21);
-// myTree.insert(76);
-// myTree.insert(18);
+myTree.insert(47);
+myTree.insert(21);
+myTree.insert(76);
+myTree.insert(18);
 
-// myTree.insert(27);
-// myTree.insert(52);
-// myTree.insert(82);
-
-// console.log('\nMinValue from root:');
-// console.log(myTree.minValue(myTree.root));
-
-// console.log('\nMinValue from root->right:');
-// console.log(myTree.minValue(myTree.root.right));
-
-myTree.rInsert(2);
-myTree.rInsert(1);
-myTree.rInsert(3);
-
-console.log('\nRoot: ' + myTree.root.value);
-console.log('\nRoot->Left: ' + myTree.root.left.value);
-console.log('\nRoot->Right: ' + myTree.root.right.value);
-
-myTree.deleteNode(2);
-
-console.log("\n\n After Deleting (2) Node: ");
-console.log("------------------------------");
-console.log("Root: " + myTree.root.value);
-console.log("Root->Left: " + myTree.root.left.value);
-console.log("Root->Right: " + myTree.root.right);
+myTree.insert(27);
+myTree.insert(52);
+myTree.insert(82);
