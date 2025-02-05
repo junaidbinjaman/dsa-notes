@@ -26,4 +26,4 @@ This repository contains my learning journey in **Data Structures and Algorithms
 - Hashing and Maps
 
 ## Languages Used
-This repository primarily uses **[Insert Language(s), e.g., Python, Java, C++]** for solutions.
+This repository primarily uses **JavaScript, PHP & Python** for solutions.
